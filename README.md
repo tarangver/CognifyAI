@@ -2,7 +2,7 @@
 
 CognifyAI is a GenAI-powered assistant that reads structured documents (PDF/TXT), generates intelligent summaries, allows users to ask contextual questions, and evaluates comprehension through logic-based Q&A.
 
-## 🔗 Live App: **[Launch CognifyAI]()**
+## 🔗 Live App: **[Launch CognifyAI](https://cognifyai-ez.streamlit.app/)**
 
 ## 🚀 Features
 
