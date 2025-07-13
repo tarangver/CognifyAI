@@ -140,9 +140,9 @@ Make sure your key supports the one you're using.
 
 ## 👨‍💻 Author
 
-
-
-Made with ❤️ by **TARANG VERMA** as part of the **EZ GenAI Internship Task**.
+Made with ❤️ for tech and 💪🛠️ dedication — by **TARANG VERMA**  
+GitHub: [@tarangver](https://github.com/tarangver)  
+LinkedIn: [@verma-tarang](https://www.linkedin.com/in/verma-tarang/)
 
 ---
 
