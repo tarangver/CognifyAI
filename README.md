@@ -77,7 +77,7 @@ GROQ_API_KEY=your_groq_api_key_here
 GROQ_MODEL=llama-3.1-8b-instant
 ```
 
-> ✅ You can replace `llama-3.1-8b-instant` with other Groq-supported models like `llama3-70b-8192` or `gemma-7b-it`.
+> ✅ You can replace `your_groq_api_key_here` with your original Groq-API key like `gsk-Fd.....sK`, and `llama-3.1-8b-instant` with other Groq-supported models like `llama3-70b-8192` or `gemma-7b-it`.
 
 ---
 
@@ -110,6 +110,7 @@ You may use any of the following Groq models:
 - `gemma-7b-it`
 - `llama3-70b-8192`
 - `llama-3.1-8b-instant`
+- ... and so on.
 
 Make sure your key supports the one you're using.
 
