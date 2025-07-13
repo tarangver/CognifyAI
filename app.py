@@ -9,7 +9,7 @@ load_dotenv()
 # App config
 st.set_page_config(page_title="CognifyAI - Research Summarizer", layout="wide")
 
-st.title("🤖CognifyAI - Smart Research Companion")
+st.title("🧠 CognifyAI - Smart Research Companion")
 
 # Session state to store parsed content
 if "doc_text" not in st.session_state:
@@ -53,7 +53,7 @@ if uploaded_file:
             st.markdown(f"🧾 *Justification:* {justification}")
 
     elif mode == "Challenge Me":
-        st.subheader("🧠 Challenge Yourself!")
+        st.subheader("🎯 Challenge Yourself!")
         if st.button("Generate Questions"):
             questions = challenge_gen.generate_questions(st.session_state.doc_text)
             st.session_state.challenge_qs = questions
