@@ -39,14 +39,16 @@ def call_groq_model(prompt: str, max_tokens=512) -> str:
 
     response = requests.post(url, headers=headers, json=data)
 
-    # Handle failed request or API error
     if response.status_code != 200:
+        import streamlit as st
+        st.error(f"❌ Groq API call failed. Status: {response.status_code}")
+        st.code(response.text, language="json")
         raise Exception(f"Groq API Error {response.status_code}: {response.text}")
 
     response_json = response.json()
 
     if "choices" not in response_json:
-        raise Exception(f"Unexpected API response format:\n{json.dumps(response_json, indent=2)}")
+        raise Exception(f"Unexpected API response:\n{json.dumps(response_json, indent=2)}")
 
     return response_json["choices"][0]["message"]["content"]
 
