@@ -21,6 +21,8 @@ if "summary" not in st.session_state:
 st.sidebar.header("📤 Upload Document")
 uploaded_file = st.sidebar.file_uploader("Choose a PDF or TXT file", type=["pdf", "txt"])
 
+
+
 if uploaded_file:
     file_ext = uploaded_file.name.split(".")[-1].lower()
     if file_ext == "pdf":
@@ -32,6 +34,11 @@ if uploaded_file:
         st.stop()
 
     st.session_state.doc_text = text
+    
+    if len(text.split()) > 2000:
+        st.warning("⚠️ Large document detected. Only the first part will be summarized due to token limits.")
+
+    
     st.session_state.summary = summarizer.generate_summary(text)
 
     st.success("✅ Document parsed successfully!")
