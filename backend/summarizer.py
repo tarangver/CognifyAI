@@ -7,3 +7,4 @@ def generate_summary(doc_text: str, max_words: int = 150) -> str:
         f"{max_words} words:\n\n{doc_text}"
     )
     return call_groq_model(prompt)
+
