@@ -1,28 +1,62 @@
 # 🧠 CognifyAI - GenAI Research Summarization Assistant
 
-CognifyAI is a GenAI-powered assistant that reads structured documents (PDF/TXT), generates intelligent summaries, allows users to ask contextual questions, and evaluates comprehension through logic-based Q&A.
+CognifyAI is a lightweight AI-powered assistant designed to help learners understand **small-sized research documents**, articles, and study material. It generates concise summaries, answers contextual questions, and tests comprehension using logic-based AI questions.
 
-## 🔗 Live App: **Launch [CognifyAI](https://cognifyai-ez.streamlit.app/)**
+> ⚠️ **Important:** This version of CognifyAI is optimized for **small documents only** (short PDFs, articles, notes, 1–3 pages max). It does *not* reliably handle large research papers or long academic PDFs.
 
-## 🚀 Features
+---
 
-- 📄 **Upload Document** (PDF/TXT)
-- 🧠 **Auto-Summarization** (≤150 words)
-- 💬 **Ask Anything**: Free-form Q&A based on document context
-- 🧪 **Challenge Me**: Generates 3 logic-based questions and evaluates your answers
-- ✅ **Justified Answers**: All responses cite back to original content
-- 🔍 **Semantic Chunk Matching** using sentence transformers
-- 🔐 **Groq API** integration with `llama-3.1-8b-instant` model
+## 🔗 Live App
+
+👉 **Launch CognifyAI:** [https://cognifyai-ez.streamlit.app/](https://cognifyai-ez.streamlit.app/)
+
+---
+
+## 🚀 Features (Current Capabilities)
+
+### ✔️ 1. **Document Upload (PDF/TXT)**
+
+Upload small research notes, articles, or pages for quick insight.
+
+### ✔️ 2. **Auto‑Summarization**
+
+* Creates a short, clear summary (≤150 words).
+* Works best for small documents.
+* Powered by **Groq Llama 3.1 (8B instant)**.
+
+### ✔️ 3. **Ask Anything – Contextual Q&A**
+
+Ask any question related to the uploaded document.
+The AI scans the most relevant chunk and provides:
+
+* A direct answer
+* A short justification referencing the content
+
+### ✔️ 4. **Challenge Me – AI-Generated Quiz**
+
+CognifyAI creates:
+
+* 3 logic-based questions
+* Evaluates your answers
+* Gives feedback + explanation
+
+### ✔️ 5. **Semantic Chunk Matching**
+
+Uses MiniLM-based embeddings to match your question with the most relevant section of the document.
+
+### ✔️ 6. **Fast LLM Responses**
+
+Integrated with **Groq’s ultra-fast inference API**.
 
 ---
 
 ## 🧰 Tech Stack
 
-| Layer         | Technology                      |
+| Layer         | Technology                       |
 |---------------|----------------------------------|
 | UI            | Streamlit                        |
 | Backend       | Python                           |
-| LLM           | Groq API (llama-3.1-8b-instant)           |
+| LLM           | Groq API (llama-3.1-8b-instant)  |
 | Embeddings    | sentence-transformers (MiniLM)   |
 | PDF Parsing   | PyMuPDF                          |
 | Environment   | python-dotenv, virtualenv        |
@@ -70,14 +104,14 @@ pip install -r requirements.txt
 
 ### 3. Add your `.env` file
 
-Create a file if not already created named `.env` in the root folder with this content:
+Create a `.env` file if not already in the root folder with this content:
 
 ```env
 GROQ_API_KEY=your_groq_api_key_here
 GROQ_MODEL=llama-3.1-8b-instant
 ```
 
-> ✅ You can replace `your_groq_api_key_here` with your original Groq-API key like `gsk-Fd.....sK`, and `llama-3.1-8b-instant` with other Groq-supported models like `llama3-70b-8192` or `gemma-7b-it`.
+> ✅ You can replace `llama-3.1-8b-instant` with other Groq-supported models.
 
 ---
 
@@ -92,14 +126,38 @@ It will open in your browser at:
 
 ---
 
-## 🧪 How to Use
+## 🧪 How to Use CognifyAI
 
-1. Upload a PDF or TXT file via the sidebar.
-2. View a concise summary (≤150 words).
-3. Choose:
-   - **Ask Anything** – Type questions based on the document
-   - **Challenge Me** – Let the AI generate 3 questions and test your comprehension
-4. Receive AI answers + source-based justifications
+1. Upload a small PDF/TXT file.
+2. Read the auto-generated summary.
+3. Pick a mode:
+
+   * **Ask Anything** → Ask content-based questions
+   * **Challenge Me** → Test your understanding
+4. Get answers with justification.
+
+---
+
+## ⚠️ Document Limitations (Important)
+
+CognifyAI (current version):
+
+### ❌ Cannot handle:
+
+* Long research papers (8–50 pages)
+* High‑token PDFs
+* Full books / long chapters
+* Heavy academic literature
+
+### ✔️ Works Best With:
+
+* Small articles
+* Single-page research summaries
+* Handwritten notes (converted to text)
+* Short academic paragraphs
+
+Reason:
+Groq’s free tier has **strict TPM (Tokens Per Minute)** and **input size limits**, which cause failures for long documents.
 
 ---
 
@@ -107,10 +165,10 @@ It will open in your browser at:
 
 You may use any of the following Groq models:
 
-- `gemma-7b-it`
-- `llama3-70b-8192`
-- `llama-3.1-8b-instant`
-- ... and so on.
+- "MetaLlama 3.1 8B": `llama-3.1-8b-instant`
+- "MetaLlama 3.3 70B": `llama-3.3-70b-versatile`
+- "OpenAI GPT OSS 120B": `openai/gpt-oss-120b`
+- "OpenAI GPT OSS 20B": `openai/gpt-oss-20b`
 
 Make sure your key supports the one you're using.
 
@@ -128,21 +186,46 @@ Make sure your key supports the one you're using.
 
 ---
 
-## 📌 TODO... Improvements
+## 🔮 Future Enhancements (Planned)
 
-- [ ] Answer snippet highlighting
-- [ ] File download (summary, quiz result)
-- [ ] Conversation memory (contextual follow-ups)
-- [ ] Switchable models via dropdown
-- [ ] Add citations by paragraph number
+These will be added in the next major upgrade:
+
+### 🧠 1. **Large Document Support (Full RAG Pipeline)**
+
+* Token-aware chunking
+* Vector store retrieval
+* Multi-pass summarization
+* Long-context LLM support
+
+### 🔄 2. **Multi-Provider LLM Support (OpenAI + Google + Groq)**
+
+* Smart routing: Summaries → Gemini, Q&A → GPT‑4o, Speed → Groq
+
+### 📄 3. **Downloadable Outputs**
+
+* Export summary as PDF/TXT
+* Export quiz results
+
+### 📌 4. **Paragraph-Level Citations**
+
+Highlight exact snippets used to answer.
+
+### 💬 5. **Conversation Memory**
+
+Allow follow-up questions on document context.
+
+### 🎨 6. **Modern UI Upgrade**
+
+New layout, animations, and dark mode.
 
 ---
 
 ## 👨‍💻 Author
 
-Made with ❤️ for tech and 💪🛠️ dedication — by **TARANG VERMA**  
-GitHub: [@tarangver](https://github.com/tarangver)  
-LinkedIn: [@verma-tarang](https://www.linkedin.com/in/verma-tarang/)
+Built with ❤️ and curiosity by **Tarang Verma**
+
+* GitHub: [https://github.com/tarangver](https://github.com/tarangver)
+* LinkedIn: [https://www.linkedin.com/in/verma-tarang/](https://www.linkedin.com/in/verma-tarang/)
 
 ---
 
